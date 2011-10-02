@@ -1,7 +1,7 @@
 #ifndef __keyboard_h__
 #define __keyboard_h__
 
-enum {
+enum Button {
     A = 0,
     B,
     C,
@@ -30,7 +30,7 @@ enum {
     ToneMemory,
     MiddleNumber,
     GuessTheNumber
-} Button;
+};
 
 class Keyboard {
     public:

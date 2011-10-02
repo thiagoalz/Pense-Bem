@@ -12,6 +12,9 @@
 class OpenSebem {
     private:
         static Activity *m_activity;
+        static Keyboard *m_keyboard;
+        static Sound *m_sound;
+        static Display *m_display;
         
         static int m_tries;
     public:
@@ -19,25 +22,30 @@ class OpenSebem {
             OpenSebem::m_activity = 0;
             OpenSebem::m_tries = 0;
             
-            OpenSebem::switchToActivity(new AStandby);
+            OpenSebem::switchToActivity(new AStandby, false);
             OpenSebem::reset();
+            OpenSebem::oneLoopIteration();
             /* FIXME: call OpenSebem::oneLoopIteration() every 100ms */
         }
         ~OpenSebem() {
             delete m_activity;
         }
         
-        static void switchToActivity(Activity*, bool keepScreenContents);
+        static void switchToActivity(Activity *activity, bool keepScreenContents);
         
         static Keyboard *keyboard() { return m_keyboard; }
         static Sound *sound() { return m_sound; }
         static Display *display() { return m_display; }
         
-        static prompt(int initialDigit, int maxDigitSize, char promptCharacter);
+        static void prompt(int initialDigit, int maxDigitSize, char promptCharacter);
         
-        static buttonPress(Button);
+        static void buttonPress(Button);
         
         static int pointsByNumberOfTries();
+
+        static void reset();
+
+        static void oneLoopIteration();
 };
 
 #endif /* __opensebem_h__ */

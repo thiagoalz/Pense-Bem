@@ -1,5 +1,5 @@
-#ifndef __activity_h__
-#define __activity_h__
+#ifndef __activity_guessthemumber_h__
+#define __activity_guessthemumber_h__
 
 #include "activity.h"
 
@@ -15,4 +15,4 @@ class AGuessTheNumber : public Activity {
         void oneLoopIteration();
 };
 
-#endif /* __activity_h__ */
+#endif /* __activity_guessthemumber_h__ */

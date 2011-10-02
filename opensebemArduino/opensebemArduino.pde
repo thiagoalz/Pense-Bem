@@ -2,7 +2,7 @@
 
 void setup()
 {
-    OpenSebem::switchToActivity(new AStandby);
+    OpenSebem::switchToActivity(new AStandby, false);
     OpenSebem::reset();
 }
 
